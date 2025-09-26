@@ -28,16 +28,9 @@ class _KonversiWaktuPageState extends State<KonversiWaktuPage> {
     int jam = _selectedTime.hour;
     int menit = _selectedTime.minute;
 
-    // Asumsi: Waktu yang diinput adalah WIB (Zona Waktu Default)
-    // Konversi:
-    // WITA = WIB + 1 jam
-    // WIT  = WIB + 2 jam
-
-    // 1. Konversi ke WITA (WIB + 1 jam)
     int jamWITA = (jam + 1) % 24;
     String waktuWITA = '${jamWITA.toString().padLeft(2, '0')}:${menit.toString().padLeft(2, '0')}';
 
-    // 2. Konversi ke WIT (WIB + 2 jam)
     int jamWIT = (jam + 2) % 24;
     String waktuWIT = '${jamWIT.toString().padLeft(2, '0')}:${menit.toString().padLeft(2, '0')}';
 
@@ -52,7 +45,6 @@ class _KonversiWaktuPageState extends State<KonversiWaktuPage> {
   @override
   void initState() {
     super.initState();
-    // Inisialisasi konversi saat halaman dimuat
     _konversiWaktu(); 
   }
 
